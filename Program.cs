@@ -1,40 +1,40 @@
 ﻿using System;
-using System.IO;
-using System.Text;
 
-namespace ConsoleUI
+namespace ConsoleAppUI
 {
     class Program
     {
-        static void WriteFile(string filename)
-        {
-            FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write);
-            if (fs.CanWrite)
-            {
-                byte[] buffer = Encoding.ASCII.GetBytes("Hello World");
-                fs.Write(buffer, 0, buffer.Length);
-            }
+        string name, city;
+        int age;
 
-            fs.Flush();
-            fs.Close();
-        }
-         static void ReadFile(string filename)
+        public void acceptdetails()
         {
-            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
-            if (fs.CanRead)
-            {
-                byte[] buffer = new byte[1024];
-                int bytesread = fs.Read(buffer, 0, buffer.Length);
+            Console.Write("\nEnter your name:\t");
+            name = Console.ReadLine();
 
-                Console.WriteLine(Encoding.ASCII.GetString(buffer, 0, bytesread));
-            }
-            fs.Close();
+            Console.Write("\nEnter your city:\t");
+            city = Console.ReadLine();
+
+            Console.Write("\nEnter your age:\t\t");
+            age = int.Parse(Console.ReadLine());
         }
+
+        public void printdetails()
+        {
+            Console.Write("\n\n================");
+            Console.Write($"\nName:\t{name}");
+            Console.Write($"\nCity:\t{city}");
+            Console.Write($"\nAge:\t{age}");
+            Console.Write("\n================\n");
+        }
+
         static void Main(string[] args)
         {
-            string Filename = @"C:\Users\scott\Documents.txt";
-            WriteFile(Filename);
-            ReadFile(Filename);
+            //creating object of class Program
+            Program p = new Program();
+            p.acceptdetails();//calling method
+            p.printdetails();//calling method
+            Console.ReadLine();
         }
     }
 }
