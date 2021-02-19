@@ -93,6 +93,7 @@ namespace ConsoleUI822
                             Console.WriteLine("Invalid entry!");
                             break;
                     }
+                }
 
                     Console.WriteLine("\n\nSCORES:\tPLAYER:\t{0}\tCPU:\t{1}", scorePlayer, scoreCPU);
 
@@ -127,7 +128,9 @@ namespace ConsoleUI822
 
                 }
 
-            }
-        }
-    }
-}
+         }
+      }
+   }
+
+
+
